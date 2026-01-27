@@ -104,7 +104,7 @@ class ActionsGrapeFruit
 
 			}
 
-			$actionList = explode(',', $conf->global->GRAPEFRUIT_BYPASS_CONFIRM_ACTIONS);
+			$actionList = explode(',', getDolGlobalString('GRAPEFRUIT_BYPASS_CONFIRM_ACTIONS'));
 			if (!empty($action) && !empty($conf->global->GRAPEFRUIT_BYPASS_CONFIRM_ACTIONS) && in_array($action, $actionList))
 			{
 				global $confirm;
@@ -198,7 +198,7 @@ class ActionsGrapeFruit
 		$langs->load('bills');
 		$langs->load('grapefruit@grapefruit');
 
-		$form = new Form($db);
+		$form = new Form($object->db);
 
 		// Script pour gérer les champs obligatoires sur une fiche contact
 		if(in_array('contactcard',$TContext) && !empty($conf->global->GRAPEFRUIT_CONTACT_FORCE_FIELDS) && ($action == 'edit' || $action == 'create')) {
